@@ -2,7 +2,7 @@ package com.cache.interfaces;
 
 import com.cache.dto.CacheEntryList;
 
-interface RapidCache<K, V> {
+public interface RapidCache<K, V> {
 
     //Removes content from caching proxy immediately. When the client requests the data again, it is fetched from the application and stored in the caching proxy.
     // This method removes all variants of the cached content
@@ -16,6 +16,8 @@ interface RapidCache<K, V> {
 
     void refreshAll();
 
-    CacheEntryList getAllEntries();
+    CacheEntryList<K,V> getAllEntries();
+
+    V getValue(K key);
 
 }
